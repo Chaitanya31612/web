@@ -5,9 +5,10 @@ import {
   Introduction,
   Vision,
   ExpertPanel,
-} from "containers/Homepage";
-import styled from "styled-components";
-import { appColors } from "styles/colors";
+} from 'containers/Homepage';
+import NewsPanel from 'containers/Homepage/NewsPanel';
+import styled from 'styled-components';
+import { appColors } from 'styles/colors';
 
 function Homepage() {
   return (
@@ -16,6 +17,7 @@ function Homepage() {
       <Vision />
       <Functions />
       <ExpertPanel />
+      <NewsPanel />
       <HomeEvents />
       <HomeTeam />
     </Container>

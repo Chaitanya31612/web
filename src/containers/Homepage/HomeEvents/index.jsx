@@ -1,14 +1,14 @@
 // import { People } from "@material-ui/icons";
-import { getDeviceType } from "helpers";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { appColors } from "styles/colors";
-import { ArrowRight } from "@material-ui/icons";
-import { useHistory } from "react-router";
-import axios from "helpers/axios";
-import EventBox from "containers/Events/EventBox/EventBox";
-import NoData from "assets/nodata.svg";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { getDeviceType } from 'helpers';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { appColors } from 'styles/colors';
+import { ArrowRight } from '@material-ui/icons';
+import { useHistory } from 'react-router';
+import axios from 'helpers/axios';
+import EventBox from 'containers/Events/EventBox/EventBox';
+import NoData from 'assets/nodata.svg';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const HomeEvents = () => {
   const [event, setEvent] = useState(null);
@@ -22,7 +22,7 @@ const HomeEvents = () => {
   const updateEventsList = () => {
     setLoading(true);
     axios
-      .get(`/api/events?type=${"all"}&page=${1}&time=${"upcomming"}`)
+      .get(`/api/events?type=${'all'}&page=${1}&time=${'upcomming'}`)
       .then((res) => {
         setEvent(
           res.data.sort((x, y) => new Date(x.endTime) - new Date(y.endTime))[0]
@@ -39,16 +39,16 @@ const HomeEvents = () => {
     <Container>
       <Head>UPCOMING EVENTS</Head>
       {loading ? (
-        <CircularProgress style={{ margin: "150px auto" }} />
+        <CircularProgress style={{ margin: '150px auto' }} />
       ) : event ? (
         <EventBox event={event} key={event.id} />
       ) : (
-        <NoDataImg src={NoData} alt=" " />
+        <NoDataImg src={NoData} alt=' ' />
       )}
 
       <Button
         onClick={() => {
-          history.push("/events");
+          history.push('/events');
           window.scrollTo(0, 0);
         }}
       >
@@ -68,9 +68,9 @@ const Container = styled.div`
 `;
 const Head = styled.h1`
   color: ${appColors.homeText};
-  font-size: ${getDeviceType() === "mobile" ? "28px" : "32px"};
+  font-size: ${getDeviceType() === 'mobile' ? '28px' : '32px'};
   font-weight: 600;
-  margin-bottom: ${getDeviceType() === "mobile" ? "50px" : "70px"};
+  margin-bottom: ${getDeviceType() === 'mobile' ? '50px' : '70px'};
   text-decoration: underline;
   text-decoration-color: ${appColors.homeDecor};
   text-underline-offset: 10px;
@@ -91,7 +91,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   max-width: 150px;
-  margin-top:35px;
+  margin-top: 35px;
   :hover {
     color: ${appColors.bgVar3};
     background-color: ${appColors.accentLight};
